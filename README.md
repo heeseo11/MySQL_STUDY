@@ -2,9 +2,9 @@
 
 #### 1. MySQL 코딩 테스트 공부 programmers 사이트 활용
 
-[programmers](https://programmers.co.kr/learn/challenges)
+   - [programmers](https://programmers.co.kr/learn/challenges)
 
-
+      - [WEEK1](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week1)
 
 #### 2. MySQL Sample Database로 지표 추출 후 분석
 
