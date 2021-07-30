@@ -5,6 +5,7 @@
    - [programmers](https://programmers.co.kr/learn/challenges)
 
       - [WEEK1](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week1)
+      - [WEEK2](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week2)
 
 #### 2. MySQL Sample Database로 지표 추출 후 분석
 
