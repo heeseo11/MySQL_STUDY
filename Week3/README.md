@@ -1,58 +1,61 @@
-Q1. [입양 시각화 구하기(1)](https://programmers.co.kr/learn/courses/30/lessons/59412)
+Q1. [있었는데요 없었습니다](https://programmers.co.kr/learn/courses/30/lessons/59043)
 
-  - HAVING HOUR >= 9 AND HOUR <=19
+  - WHERE OUTS.DATETIME <= INS.DATETIME
   
   ```MYSQL
-    SELECT HOUR(DAtETIME) AS HOUR, COUNT(DATETIME)AS COUNT
-    FROM ANIMAL_OUTS
-    GROUP BY HOUR(DATETIME) 
-    HAVING HOUR >= 9 AND HOUR <=19
-    ORDER BY HOUR
-  ```
- - WHERE HOUR(DATETIME) BETWEEN 9 AND 19
- 
-  ```MYSQL
-    SELECT HOUR(DATETIME) as HOUR, COUNT(DATETIME) as COUNT
-    FROM ANIMAL_OUTS
-    WHERE HOUR(DATETIME) BETWEEN 9 AND 19
-    GROUP BY HOUR(DATETIME)
-    ORDER BY HOUR(DATETIME)
-```
-
-Q2. [이름에 el이 들어가는 동물 찾기](https://programmers.co.kr/learn/courses/30/lessons/59047)
-
-  - WHERE / LIKE / AND
-  
-  ```MYSQL
-    SELECT ANIMAL_ID, NAME 
-    FROM ANIMAL_INS
-    WHERE NAME LIKE '%EL%'
-    AND ANIMAL_TYPE = 'DOG'
-    ORDER BY NAME
-  ```
-
-Q3. [중복 제거하기](https://programmers.co.kr/learn/courses/30/lessons/59408)
-
-  - DISTINCT
-  
-  ```MYSQL
-    SELECT COUNT(DISTINCT NAME) AS COUNT FROM ANIMAL_INS
-  ```
-
-Q4. [최솟값 구하기](https://programmers.co.kr/learn/courses/30/lessons/59038)
-
-  - MIN
-
-  ```MYSQL
-    SELECT MIN(DATETIME) AS '시간' FROM ANIMAL_INS
+    SELECT INS.ANIMAL_ID, INS.NAME 
+    FROM ANIMAL_INS AS INS INNER JOIN ANIMAL_OUTS AS OUTS
+    ON INS.ANIMAL_ID = OUTS.ANIMAL_ID
+    WHERE OUTS.DATETIME <= INS.DATETIME
+    ORDER BY INS.DATETIME
   ```
   
-Q5. [중성화 여부 파악하기](https://programmers.co.kr/learn/courses/30/lessons/59409)
+Q2. [없어진 기록 찾기](https://programmers.co.kr/learn/courses/30/lessons/59042)
 
-  -  IF / LIKE / OR
+  - LEFT OUTER JOIN / is NULL
+  
+  ```MYSQL
+    SELECT OUTS.ANIMAL_ID, OUTS.NAME
+    FROM ANIMAL_OUTS AS OUTS
+    LEFT OUTER JOIN ANIMAL_INS AS INS
+    ON OUTS.ANIMAL_ID = INS.ANIMAL_ID
+    WHERE INS.ANIMAL_ID is NULL
+    ORDER BY OUTS.ANIMAL_ID
+  ```
+
+Q3. [헤비 유저가 소유한 장소](https://programmers.co.kr/learn/courses/30/lessons/77487)
+
+  - IN / GROUP BY HAVING
+  
+  ```MYSQL
+    SELECT ID, NAME, HOST_ID 
+    FROM PLACES 
+    WHERE HOST_ID IN ( 
+        SELECT HOST_ID 
+        FROM PLACES 
+        GROUP BY HOST_ID 
+        HAVING COUNT(*) >= 2
+)
+  ```
+
+Q4. [오랜 기간 보호한 동물(1)](https://programmers.co.kr/learn/courses/30/lessons/59044)
+
+  - LEFT JOIN / IS NULL
 
   ```MYSQL
-    SELECT ANIMAL_ID, NAME,
-    IF(SEX_UPON_INTAKE LIKE '%Neutered%' OR SEX_UPON_INTAKE LIKE '%Spayed%','O','X') AS '중성화'
+    SELECT INS.NAME, INS.DATETIME 
+    FROM ANIMAL_INS AS INS LEFT JOIN ANIMAL_OUTS AS OUTS
+    ON INS.ANIMAL_ID = OUTS.ANIMAL_ID
+    WHERE OUTS.ANIMAL_ID IS NULL
+    ORDER BY INS.DATETIME 
+    LIMIT 3
+  ```
+  
+Q5. [DATETIME에서 DATE로 형 변환](https://programmers.co.kr/learn/courses/30/lessons/59414)
+
+  - DATE_FORMAT(DATETIME, '%Y-%m-%d'
+
+  ```MYSQL
+    SELECT ANIMAL_ID, NAME, DATE_FORMAT(DATETIME, '%Y-%m-%d') AS 날짜
     FROM ANIMAL_INS
   ```
