@@ -1,6 +1,6 @@
 # MySQL_STUDY
 
-#### 1. MySQL 코딩 테스트 공부 programmers 사이트 활용
+#### 1. MySQL 코딩 테스트 사이트 활용
 
    - [programmers](https://programmers.co.kr/learn/challenges)
 
@@ -8,6 +8,12 @@
       - [WEEK2](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week2)
       - [WEEK3](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week3)
       - [WEEK4](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week4)
+      - [WEEK5](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week5)
+
+   - [LeetCode](https://leetcode.com/problemset/all/?page=1)
+
+
+-----------------------------
 
 #### 2. MySQL Sample Database로 지표 추출 후 분석
 
