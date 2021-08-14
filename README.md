@@ -13,6 +13,7 @@
    - [LeetCode](https://leetcode.com/problemset/all/?page=1)
 
       - [WEEK6](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week6)
+      - [WEEK7](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week7)
 -----------------------------
 
 #### 2. MySQL Sample Database로 지표 추출 후 분석
