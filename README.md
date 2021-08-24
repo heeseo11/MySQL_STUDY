@@ -14,6 +14,7 @@
 
       - [WEEK6](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week6)
       - [WEEK7](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week7)
+      - [WEEK8](https://github.com/heeseo11/MySQL_STUDY/tree/main/Week8)
 -----------------------------
 
 #### 2. MySQL Sample Database로 지표 추출 후 분석
